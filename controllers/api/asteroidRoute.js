@@ -1,18 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const { Asteroid, Comment, User } = require("../../models");
-const axios = require("axios");
-const moment = require("moment");
+
 const { response } = require("express");
-const today = moment().format("YYYY-MM-DD");
 const axios = require("axios");
 const authenticated = require("../../utils/auth");
-const { User, Asteroid, Comment } = require("../../models");
 
 
 // name, diameter, speed, hazardous, close_date, missed_distance
 
-router.get("/", authenticated, async (req, res) => {});
+router.get("/", authenticated, async (req, res) => {
 Asteroid.findOne({
   attributes: ["name", "diameter", "speed", "hazardous", "close_date"],
   where: {
@@ -32,4 +29,38 @@ Asteroid.findOne({
   }
 ]
 })
+})
 
+
+router.get('/:id', (req, res) => {
+  Asteroid.findOne({
+    attributes: ["name", "diameter", "speed", "hazardous", "close_date"],
+    where: {
+      id: req.params.id,
+    },
+    include: [
+      {
+        model: Comment,
+        attributes: ["comment_text", "created_at"],
+        include: [
+          {
+            model: User,
+            attributes: ["username"],
+            where: {
+              id: Comment.user_id
+            }
+          }
+        ]
+      },
+      
+    ]
+  })
+
+  .then((dbAsteroidData) => {
+    const asteroid = dbAsteroidData.get({ plain: true });
+    res.render("asteroid", { asteroid, loggedIn: req.session.loggedIn });
+  })
+})
+
+
+module.exports = router;
