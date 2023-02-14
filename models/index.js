@@ -17,7 +17,7 @@ Asteroid.hasMany(Comment, {
 });
 
 Comment.belongsTo(Asteroid, {
-    foreignKey: 'asteroid_id'
+    foreignKey: 'asteroid_id',
 });
 
 module.exports = {
