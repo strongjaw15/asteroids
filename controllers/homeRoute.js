@@ -6,33 +6,42 @@ const axios = require("axios");
 const moment = require("moment");
 const today = moment().format("YYYY-MM-DD");
 const tomorrow = moment().add(1, 'days').format("YYYY-MM-DD");
+const weekAgo = moment().subtract(7, 'days').format("YYYY-MM-DD HH:MM:SS")
+// const Sequelize = require('sequelize')
 
 router.get("/", async (req, res) => {
 
-  // await Asteroid.destroy({ where: {} });
-
-  //  await Asteroid.destroy(Asteroid.findAll());
-
+  // await Asteroid.destroy({ where: {
+  //   created_at: {
+  //     [Sequelize.Op.lt]: weekAgo
+  //   }
+  // }});
 
   const nasaData = await axios.get(
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${tomorrow}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
   );
 
-  const data = nasaData.data.near_earth_objects;
+  const data = await nasaData.data.near_earth_objects;
+  const promises = [];
   for (const date in data) {
     data[date].forEach(async (element) => {
-      await Asteroid.create({
-        name: element.name,
-        diameter: element.estimated_diameter.feet.estimated_diameter_max,
-        speed: element.close_approach_data[0].relative_velocity.miles_per_hour,
-        hazardous: element.is_potentially_hazardous_asteroid,
-        close_date: element.close_approach_data[0].close_approach_date_full,
-        miss_distance: element.close_approach_data[0].miss_distance.lunar,
-      });
+      promises.push(
+        Asteroid.create({
+          name: element.name,
+          diameter: element.estimated_diameter.feet.estimated_diameter_max,
+          speed: element.close_approach_data[0].relative_velocity.miles_per_hour,
+          hazardous: element.is_potentially_hazardous_asteroid,
+          close_date: element.close_approach_data[0].close_approach_date_full,
+          miss_distance: element.close_approach_data[0].miss_distance.lunar,
+        })
+      );
     });
   }
 
+  await Promise.all(promises);
+
   const results = await Asteroid.findAll({});
+  console.log("results: ", results);
 
   const asteroids = results.map((roidz) => roidz.get({ plain: true }));
   console.log(asteroids);
