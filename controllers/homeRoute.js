@@ -32,9 +32,7 @@ router.get("/", async (req, res) => {
     });
   }
 
-  const results = await Asteroid.findAll({
-    attributes: ["name", "miss_distance", "hazardous"],
-  });
+  const results = await Asteroid.findAll({});
 
   const asteroids = results.map((roidz) => roidz.get({ plain: true }));
   console.log(asteroids);
@@ -43,7 +41,7 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/asteroid/:id", (req, res) => {
+router.get("/asteroid/:id", authenticated, (req, res) => {
   Asteroid.findOne({
     where: {
       id: req.params.id,
@@ -59,7 +57,7 @@ router.get("/asteroid/:id", (req, res) => {
   }).then((convert) => {
     const singleConvert = convert.get({ plain: true });
 
-    res.render("asteroid", {
+    res.render("single_asteroid", {
       asteroid: singleConvert,
       loggedIn: req.session.loggedIn,
     });

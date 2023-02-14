@@ -6,61 +6,54 @@ const { response } = require("express");
 const axios = require("axios");
 const authenticated = require("../../utils/auth");
 
-
 // name, diameter, speed, hazardous, close_date, missed_distance
 
 router.get("/", authenticated, async (req, res) => {
-Asteroid.findOne({
-  attributes: ["name", "diameter", "speed", "hazardous", "close_date"],
-  where: {
-    name: req.params.name,
-  },
-  include: [
-    {
-    model: Comment,
-    attributes: ["comment_text", "created_at", ],
-  },
-    {
-    model: User,
-    attributes: ["username"],
-    where: {
-      id: Comment.user_id
-    }
-  }
-]
-})
-})
-
-
-router.get('/:id', (req, res) => {
   Asteroid.findOne({
     attributes: ["name", "diameter", "speed", "hazardous", "close_date"],
+    where: {
+      name: req.params.name,
+    },
+    include: [
+      {
+        model: Comment,
+        attributes: ["comment_text", "created_at"],
+      },
+      {
+        model: User,
+        attributes: ["username"],
+        where: {
+          id: Comment.user_id,
+        },
+      },
+    ],
+  });
+});
+
+router.get("/:id", (req, res) => {
+  Asteroid.findOne({
+    attributes: ["id", "name", "diameter", "speed", "hazardous", "close_date"],
     where: {
       id: req.params.id,
     },
     include: [
       {
         model: Comment,
-        attributes: ["comment_text", "created_at"],
         include: [
           {
             model: User,
-            attributes: ["username"],
             where: {
-              id: Comment.user_id
-            }
-          }
-        ]
+              id: Comment.user_id,
+            },
+          },
+        ],
       },
-      
-    ]
+    ],
   })
-
   .then((dbAsteroidData) => {
     const asteroid = dbAsteroidData.get({ plain: true });
     res.render("asteroid", { asteroid, loggedIn: req.session.loggedIn });
-  })
-})
-
+  });
+});
 
 module.exports = router;
