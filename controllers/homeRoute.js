@@ -5,12 +5,13 @@ const authenticated = require("../utils/auth");
 const axios = require("axios");
 const moment = require("moment");
 const today = moment().format("YYYY-MM-DD");
+const tomorrow = moment().add(1, 'days').format("DD");
 
 router.get("/", async (req, res) => {
-  await Asteroid.destroy(Asteroid.findAll());
+  // await Asteroid.destroy({ where: {} });
 
   const nasaData = await axios.get(
-    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
+    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${tomorrow}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
   );
 
   const data = nasaData.data.near_earth_objects;

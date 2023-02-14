@@ -34,7 +34,8 @@ Asteroid.init(
         },
         miss_distance: {
             type: DataTypes.DECIMAL
-        }
+        },
+        
     },
     {
         sequelize,
