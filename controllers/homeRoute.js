@@ -5,17 +5,12 @@ const authenticated = require("../utils/auth");
 const axios = require("axios");
 const moment = require("moment");
 const today = moment().format("YYYY-MM-DD");
-const tomorrow = moment().add(1, 'days').format("YYYY-MM-DD");
 
 router.get("/", async (req, res) => {
-
-  // await Asteroid.destroy({ where: {} });
-
-  //  await Asteroid.destroy(Asteroid.findAll());
-
+  // await Asteroid.destroy(Asteroid.findAll());
 
   const nasaData = await axios.get(
-    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${tomorrow}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
+    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
   );
 
   const data = nasaData.data.near_earth_objects;
@@ -32,7 +27,9 @@ router.get("/", async (req, res) => {
     });
   }
 
-  const results = await Asteroid.findAll({});
+  const results = await Asteroid.findAll({
+    attributes: ["name", "miss_distance", "hazardous"],
+  });
 
   const asteroids = results.map((roidz) => roidz.get({ plain: true }));
   console.log(asteroids);
@@ -41,7 +38,7 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/asteroid/:id", authenticated, (req, res) => {
+router.get("/asteroid/:id", (req, res) => {
   Asteroid.findOne({
     where: {
       id: req.params.id,
@@ -57,7 +54,7 @@ router.get("/asteroid/:id", authenticated, (req, res) => {
   }).then((convert) => {
     const singleConvert = convert.get({ plain: true });
 
-    res.render("single_asteroid", {
+    res.render("asteroid", {
       asteroid: singleConvert,
       loggedIn: req.session.loggedIn,
     });

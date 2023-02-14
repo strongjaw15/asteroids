@@ -1,8 +1,6 @@
-const router = require('express').Router();
-const session = require('express-session');
-
-
-
+const router = require("express").Router();
+const session = require("express-session");
+const { Asteroid, Comment, User } = require("../../models");
 router.post("/signup", (req, res) => {
   User.create({
     username: req.body.username,
@@ -28,15 +26,17 @@ router.post("/login", (req, res) => {
       username: req.body.username,
     },
   })
-    .then((userData) => {
+    .then(async (userData) => {
+      console.log(userData);
       if (!userData) {
         res
           .status(400)
           .json({ message: "A user with that username was not found." });
         return;
       }
-      const checkPassword = userData.checkPassword(req.body.password);
-
+      const checkPassword = await userData.checkPassword(req.body.password);
+      console.log(req.body.password);
+      console.log(checkPassword);
       if (!checkPassword) {
         return res.status(400).json({ message: "Incorrect password entered." });
       }

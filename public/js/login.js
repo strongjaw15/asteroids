@@ -12,7 +12,7 @@ const loginForm = async (event) => {
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
     });
-
+    console.log(response);
     if (response.ok) {
       document.location.replace("/");
     } else {
@@ -20,5 +20,5 @@ const loginForm = async (event) => {
     }
   }
 };
-
+console.log(loginForm);
 loginFormSelector.addEventListener("submit", loginForm);
