@@ -7,6 +7,8 @@ const moment = require("moment");
 const today = moment().format("YYYY-MM-DD");
 
 router.get("/", async (req, res) => {
+  await Asteroid.destroy(Asteroid.findAll());
+
   const nasaData = await axios.get(
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
   );
