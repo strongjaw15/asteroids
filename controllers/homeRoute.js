@@ -8,7 +8,11 @@ const today = moment().format("YYYY-MM-DD");
 const tomorrow = moment().add(1, 'days').format("DD");
 
 router.get("/", async (req, res) => {
+
   // await Asteroid.destroy({ where: {} });
+
+  //  await Asteroid.destroy(Asteroid.findAll());
+
 
   const nasaData = await axios.get(
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${tomorrow}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
