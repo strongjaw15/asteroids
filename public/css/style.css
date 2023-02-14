@@ -1,0 +1,16 @@
+:root{
+    --bg: #2f3b46;
+    --text: #c2c0c0;
+    /* --cosmic: */
+}
+
+body {
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to bottom right, rgb(77, 27, 117), rgb(13, 19, 68));
+}
