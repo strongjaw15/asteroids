@@ -1,21 +1,50 @@
-<div class="row my-3 mx-auto">
+
   <div class="col-4">
-    <div class="card">
       <div class="card-body">
         <a href="/asteroid/{{id}}" class="text-decoration-none">
+
           <h3 class="card-title">
             {{name}}
           </h3>
         </a>
-        <p>
-          Lunar Distance:
-          {{miss_distance}}
-        </p>
-        <p>
-          Hazardous:
-          {{hazardous}}
-        </p>
+
+        <div class="card-data">
+          
+            <p class="result-title">Lunar Distance:</p>
+            <p class="card-result">{{miss_distance}}</p>
+          
+
+          
+            <p class="result-title">Hazardous:</p>
+            <p class="card-result">{{hazardous}}</p>
+          
+        </div>
+
+      </div>
+
+  </div>
+
+
+{{!-- <div class="container">  
+  <div class="row my-3 mx-auto">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <a href="/asteroid/{{id}}" class="text-decoration-none">
+            <h3 class="card-title">
+              {{name}}
+            </h3>
+          </a>
+          <p>
+            Lunar Distance:
+            {{miss_distance}}
+          </p>
+          <p>
+            Hazardous:
+            {{hazardous}}
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</div> --}}
