@@ -5,7 +5,7 @@ const authenticated = require("../utils/auth");
 const axios = require("axios");
 const moment = require("moment");
 const today = moment().format("YYYY-MM-DD");
-const tomorrow = moment().add(1, 'days').format("DD");
+const tomorrow = moment().add(1, 'days').format("YYYY-MM-DD");
 
 router.get("/", async (req, res) => {
 
