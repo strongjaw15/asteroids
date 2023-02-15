@@ -6,6 +6,6 @@ const commentRoutes = require("./commentRoutes");
 
 router.use("/users", userRoutes);
 router.use("/asteroids", asteroidRoutes);
-// router.use("/comments", commentRoutes);
+router.use("/comments", commentRoutes);
 
 module.exports = router;
