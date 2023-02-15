@@ -2,7 +2,7 @@
     --bg: #2f3b46;
     --text: #d6d6d6;
     --gradient: linear-gradient(to bottom right, #4d1b75, #0d1344);
-    --opaque: #3a466d88;
+    --opaque: #3a466db6;
     /* --cosmic: */
 }
 
@@ -151,4 +151,44 @@ header h1 a:hover{
 .btn:hover{
     color: #4d1b75;
     background-image: linear-gradient(to bottom right, #5f4675, #464f96);
+}
+
+/* single asteroid */
+
+.card-body{
+    background-color: var(--opaque);
+}
+
+.card-content{
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.card-content p{
+    margin: 0.5rem 0 0 0;
+}
+
+.comment-form{
+    border: 2px solid var(--text);
+    border-radius: 16px;
+    margin-top: 0.5rem;
+    background-color: var(--opaque);
+}
+
+.comment-form h3{
+    background-image: var(--gradient);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.comment-form-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment-btn{
+    color: var(--text);
 }
