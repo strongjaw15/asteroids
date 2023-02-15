@@ -15,7 +15,7 @@ body {
     background-image: url("../assets/outerspace2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-color: var(--bg); */
+    background-attachment: fixed;
 }
 
 header{
