@@ -49,10 +49,9 @@ router.get("/:id", (req, res) => {
         ],
       },
     ],
-  })
-  .then((dbAsteroidData) => {
+  }).then((dbAsteroidData) => {
     const asteroid = dbAsteroidData.get({ plain: true });
-    res.render("asteroid", { asteroid, loggedIn: req.session.loggedIn });
+    res.render("single_asteroid", { asteroid, loggedIn: req.session.loggedIn });
   });
 });
 
