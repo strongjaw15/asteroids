@@ -152,3 +152,8 @@ header h1 a:hover{
     color: #4d1b75;
     background-image: linear-gradient(to bottom right, #5f4675, #464f96);
 }
+
+/* logout */
+#logout{
+    cursor: pointer
+}
