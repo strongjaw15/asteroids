@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
   // }});
 
   const nasaData = await axios.get(
-    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
+    `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${tomorrow}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
   );
 
   const data = await nasaData.data.near_earth_objects;
@@ -75,10 +75,6 @@ router.get("/asteroid/:id", (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
   res.render("login");
 });
 
