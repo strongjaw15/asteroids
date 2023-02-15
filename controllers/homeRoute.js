@@ -6,18 +6,16 @@ const axios = require("axios");
 const moment = require("moment");
 const today = moment().format("YYYY-MM-DD");
 
-const tomorrow = moment().add(1, 'days').format("YYYY-MM-DD");
-const weekAgo = moment().subtract(7, 'days').format("YYYY-MM-DD HH:MM:SS")
+const tomorrow = moment().add(1, "days").format("YYYY-MM-DD");
+const weekAgo = moment().subtract(7, "days").format("YYYY-MM-DD HH:MM:SS");
 // const Sequelize = require('sequelize')
 
 router.get("/", async (req, res) => {
-
   // await Asteroid.destroy({ where: {
   //   created_at: {
   //     [Sequelize.Op.lt]: weekAgo
   //   }
   // }});
-
 
   const nasaData = await axios.get(
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
@@ -31,7 +29,8 @@ router.get("/", async (req, res) => {
         Asteroid.create({
           name: element.name,
           diameter: element.estimated_diameter.feet.estimated_diameter_max,
-          speed: element.close_approach_data[0].relative_velocity.miles_per_hour,
+          speed:
+            element.close_approach_data[0].relative_velocity.miles_per_hour,
           hazardous: element.is_potentially_hazardous_asteroid,
           close_date: element.close_approach_data[0].close_approach_date_full,
           miss_distance: element.close_approach_data[0].miss_distance.lunar,
@@ -40,12 +39,10 @@ router.get("/", async (req, res) => {
     });
   }
 
-
   await Promise.all(promises);
 
   const results = await Asteroid.findAll({});
   console.log("results: ", results);
-
 
   const asteroids = results.map((roidz) => roidz.get({ plain: true }));
   console.log(asteroids);
@@ -70,7 +67,7 @@ router.get("/asteroid/:id", (req, res) => {
   }).then((convert) => {
     const singleConvert = convert.get({ plain: true });
 
-    res.render("asteroid", {
+    res.render("single_asteroid", {
       asteroid: singleConvert,
       loggedIn: req.session.loggedIn,
     });
