@@ -1,37 +1,41 @@
-<div class="col-4">
-  <div class="card">
+<div class="row">  
+  <div class="col-5 ast-container">
     <div class="card-body">
       <h3 class="card-title">
         Asteroid Name:
         {{asteroid.name}}
       </h3>
 
-      <p>
-        Miss Distance:
-        {{asteroid.miss_distance}}
-      </p>
+      <div class="card-content">
+        <p>
+          Miss Distance:
+          {{asteroid.miss_distance}} LD
+        </p>
 
-      <p>
-        Hazardous:
-        {{asteroid.hazardous}}
-      </p>
+        <p>
+          Hazardous:
+          {{asteroid.hazardous}}
+        </p>
 
-      <p>
-        Diameter:
-        {{asteroid.diameter}}
-      </p>
+        <p>
+          Diameter:
+          {{asteroid.diameter}} ft
+        </p>
 
-      <p>
-        Close Date:
-        {{asteroid.close_date}}
-      </p>
+        <p>
+          Close Date:
+          {{new_date asteroid.close_date}}
+        </p>
+      </div>
 
     </div>
   </div>
-</div>
 
-<div class="comment-partial">
-  {{> comment asteroid.comments}}
-</div>
 
+  <div class="col-1"></div>
+
+  <div class="comment-partial col-6">
+    {{> comment asteroid.comments}}
+  </div>
+</div>
 <script src="/js/comment.js"></script>
