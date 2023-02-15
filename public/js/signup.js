@@ -1,15 +1,18 @@
 const signupFormSelector = document.getElementById("signup-form");
 
+let username = $("#username-signup");
+let password = $("#password-signup");
+
 const signup = async (event) => {
   event.preventDefault();
 
-  const username = document.querySelector("#username-signup");
-  const password = document.querySelector("#password-signup");
-
-  if (username && password) {
+  if (username.val() && password.val()) {
     const response = await fetch("/api/users/signup", {
       method: "POST",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({
+        'username': username.val(),
+        'password': password.val()
+      }),
       headers: { "Content-Type": "application/json" },
     });
 

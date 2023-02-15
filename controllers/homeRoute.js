@@ -44,11 +44,11 @@ router.get("/", async (req, res) => {
   await Promise.all(promises);
 
   const results = await Asteroid.findAll({});
-  console.log("results: ", results);
+  // console.log("results: ", results);
 
 
   const asteroids = results.map((roidz) => roidz.get({ plain: true }));
-  console.log(asteroids);
+  // console.log(asteroids);
   res.render("homepage", {
     asteroids: asteroids,
   });
