@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const session = require("express-session");
 const { Asteroid, Comment, User } = require("../../models");
+
 router.post("/signup", (req, res) => {
   User.create({
     username: req.body.username,
