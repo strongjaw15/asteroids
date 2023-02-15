@@ -191,4 +191,10 @@ header h1 a:hover{
 
 .comment-btn{
     color: var(--text);
+
+/* logout */
+
+#logout{
+    cursor: pointer
+
 }
