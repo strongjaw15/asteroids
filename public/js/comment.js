@@ -3,7 +3,7 @@ const newComment = document.querySelector(".comment-form");
 async function postComment(event) {
   event.preventDefault();
 
-  const content = document.querySelector(".comment-input");
+  const content = document.querySelector("#comment-input");
   const user_id = document.querySelector(`#user_id`);
   const asteroid_id = document.querySelector("#asteroid_id");
 
