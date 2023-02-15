@@ -57,8 +57,9 @@ router.get("/", async (req, res) => {
   });
 });
 
-// This selects a single asteroid to view further details and comments.
-router.get("/asteroid/:id", (req, res) => {
+
+router.get("/asteroid/:id", authenticated, (req, res) => {
+
   Asteroid.findOne({
     where: {
       id: req.params.id,
@@ -73,7 +74,6 @@ router.get("/asteroid/:id", (req, res) => {
     ],
   }).then((convert) => {
     const singleConvert = convert.get({ plain: true });
-
     res.render("single_asteroid", {
       asteroid: singleConvert,
       loggedIn: req.session.loggedIn,

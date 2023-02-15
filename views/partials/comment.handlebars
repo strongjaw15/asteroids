@@ -4,8 +4,8 @@
 
         <div class="comment-form-content">
             <input class="form-input" type="text" placeholder="comment" id="comment-input"/>
-            <input type="hidden" id="user_id" value="{{user.id}}" />
-            <input type="hidden" id="asteroid_id" value="{{asteroid.id}}" />
+            <input type="hidden" id="user_id" value="{{this.[0].user_id}}" />
+            <input type="hidden" id="asteroid_id" value="{{this.[0].asteroid_id}}" />
             <button class="btn comment-btn" type="submit">submit</button>
         </div>
     </form>
@@ -14,8 +14,9 @@
         {{#each this}}
             <div class="comment-container">
                 <p class="comment-header">Posted by {{ user.username }} on {{ new_date createdAt }}</p>
-                <p class="comment-content">{{ content }}</p>
+                <p class="comment-content">{{this.content}}</p>
             </div>
         {{/each}}    
     </div>
+
 </div>
