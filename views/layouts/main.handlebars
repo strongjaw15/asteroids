@@ -23,7 +23,7 @@
       <a class="link" href="/">'Roids</a>
     </h1>
     <div class="nav-div">
-      {{#if logged_in}}
+      {{#if req.session.logged_in}}
       <a href="/" class="nav-link" id="logout">Logout</a>
       {{else}}
       <a href="/signup" class="nav-link">Sign Up</a>
