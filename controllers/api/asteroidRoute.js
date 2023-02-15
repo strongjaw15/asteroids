@@ -8,7 +8,7 @@ const authenticated = require("../../utils/auth");
 
 // name, diameter, speed, hazardous, close_date, missed_distance
 
-router.get("/", authenticated, async (req, res) => {
+/* router.get("/", authenticated, async (req, res) => {
   Asteroid.findOne({
     attributes: ["name", "diameter", "speed", "hazardous", "close_date"],
     where: {
@@ -28,32 +28,6 @@ router.get("/", authenticated, async (req, res) => {
       },
     ],
   });
-});
-
-router.get("/:id", (req, res) => {
-  Asteroid.findOne({
-    attributes: ["id", "name", "diameter", "speed", "hazardous", "close_date"],
-    where: {
-      id: req.params.id,
-    },
-    include: [
-      {
-        model: Comment,
-        include: [
-          {
-            model: User,
-            where: {
-              id: Comment.user_id,
-            },
-          },
-        ],
-      },
-    ],
-  })
-  .then((dbAsteroidData) => {
-    const asteroid = dbAsteroidData.get({ plain: true });
-    res.render("asteroid", { asteroid, loggedIn: req.session.loggedIn });
-  });
-});
+}); */
 
 module.exports = router;
