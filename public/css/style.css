@@ -261,4 +261,8 @@ header h1 a:hover {
 
     /* comment page */
 
-}
+    .card-body{
+        margin: 0 0 8px 0;
+    }
+
+} 
