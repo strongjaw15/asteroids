@@ -102,8 +102,9 @@ header h1 a:hover {
     flex-direction: column;
 }
 
-.result-title {
-    color: #1c2caa;
+.result-title{
+    color: #4255e2;
+
     margin-top: 10px;
 }
 
@@ -114,9 +115,10 @@ header h1 a:hover {
 
 /* login */
 
-.login-container {
-    border: 2px solid rgb(36, 36, 36);
+.login-container{
+    border: 2px solid var(--text);
     background-color: var(--opaque);
+    width: 50%;
     text-align: center;
     padding: 0;
     border-radius: 16px;
@@ -148,6 +150,8 @@ header h1 a:hover {
 
 .btn {
     background-image: var(--gradient);
+    border: 0;
+    border-radius: 8px;
     width: 120px;
     margin: 0.5rem;
 }
@@ -172,7 +176,10 @@ header h1 a:hover {
     margin: 0.5rem 0 0 0;
 }
 
-.comment-form {
+
+/* comment form */
+
+.comment-form{
     border: 2px solid var(--text);
     border-radius: 16px;
     margin-top: 0.5rem;
@@ -197,8 +204,61 @@ header h1 a:hover {
     color: var(--text);
 }
 
+/* comments */
+
+.comment-container{
+    border: 2px solid var(--text);
+    background-color: var(--opaque);
+    border-radius: 16px;
+    margin-bottom: 15px;
+}
+
+.comment-header{
+    background-image: var(--gradient);
+    text-align: center;
+    padding: 5px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.comment-content{
+    padding: 0 10px;
+}
+
 /* logout */
 
-#logout {
+#logout{
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 576px) {
+    /* header */
+
+    header h1{
+        font-size: 50px;
+        margin: 0;
+    }
+    
+    header h1 a{
+        font-size: 50px;
+        margin-left: 10px;
+    }
+
+    .nav-div{
+        text-align: center;
+    }
+
+    /* login */
+
+    .login-container{
+        width: 90%;
+    }
+
+    .form-input{
+        width: 90%;
+    }
+
+    /* comment page */
+
 }
