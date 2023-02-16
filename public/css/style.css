@@ -1,4 +1,4 @@
-:root{
+:root {
     --bg: #2f3b46;
     --text: #d6d6d6;
     --gradient: linear-gradient(to bottom right, #4d1b75, #0d1344);
@@ -6,7 +6,7 @@
     /* --cosmic: */
 }
 
-*{
+* {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -18,25 +18,26 @@ body {
     background-attachment: fixed;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     background-image: var(--gradient);
     margin-bottom: 10px;
 }
 
-header h1 a{
+header h1 a {
     color: var(--text);
     font-family: 'Bungee', cursive;
     font-size: 100px;
     margin-left: 15px;
     text-decoration: none;
 }
-header h1 a:hover{
+
+header h1 a:hover {
     color: var(--text);
 }
 
-.nav-div{
+.nav-div {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -44,37 +45,38 @@ header h1 a:hover{
     margin-right: 0.25rem;
 }
 
-.nav-div a{
+.nav-div a {
     font-size: 20px;
 }
 
-.nav-link{
+.nav-link {
     text-decoration: none;
     color: var(--text);
     padding: 0.5rem 1rem;
 }
-.nav-link:hover{
+
+.nav-link:hover {
     color: #6933ce;
 }
 
 
 /* homepage */
 
-.card-body{
+.card-body {
     border: 2px solid var(--text);
     padding: 0;
     text-align: center;
     border-radius: 16px;
     margin: 0.75rem;
-    
+
 }
 
-.col-4{
+.col-4 {
     margin: 0;
     padding: 0;
 }
 
-.card-title{
+.card-title {
     color: var(--text);
     background-image: var(--gradient);
     padding: 0.75rem;
@@ -82,36 +84,37 @@ header h1 a:hover{
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
 }
-.card-title:hover{
+
+.card-title:hover {
     color: #6933ce;
 }
 
-.card-data{
+.card-data {
     background-color: var(--opaque);
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
 }
 
-.card-data p{
+.card-data p {
     margin: 0;
 
     display: flex;
     flex-direction: column;
 }
 
-.result-title{
+.result-title {
     color: #1c2caa;
     margin-top: 10px;
 }
 
-.card-result{
+.card-result {
     font-size: 22px;
 }
 
 
 /* login */
 
-.login-container{
+.login-container {
     border: 2px solid rgb(36, 36, 36);
     background-color: var(--opaque);
     text-align: center;
@@ -120,62 +123,63 @@ header h1 a:hover{
     margin: 80px auto;
 }
 
-.login-h2{
+.login-h2 {
     background-image: var(--gradient);
     padding: 1rem;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 }
 
-.form-group{
+.form-group {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
 }
 
-.form-group label{
+.form-group label {
     font-size: 20px;
 }
 
-.form-input{
+.form-input {
     width: 500px;
     border-radius: 8px;
 }
 
-.btn{
+.btn {
     background-image: var(--gradient);
     width: 120px;
     margin: 0.5rem;
 }
-.btn:hover{
+
+.btn:hover {
     color: #4d1b75;
     background-image: linear-gradient(to bottom right, #5f4675, #464f96);
 }
 
 /* single asteroid */
 
-.card-body{
+.card-body {
     background-color: var(--opaque);
 }
 
-.card-content{
+.card-content {
     border-bottom-right-radius: 16px;
     border-bottom-left-radius: 16px;
 }
 
-.card-content p{
+.card-content p {
     margin: 0.5rem 0 0 0;
 }
 
-.comment-form{
+.comment-form {
     border: 2px solid var(--text);
     border-radius: 16px;
     margin-top: 0.5rem;
     background-color: var(--opaque);
 }
 
-.comment-form h3{
+.comment-form h3 {
     background-image: var(--gradient);
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
@@ -183,18 +187,18 @@ header h1 a:hover{
     text-align: center;
 }
 
-.comment-form-content{
+.comment-form-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.comment-btn{
+.comment-btn {
     color: var(--text);
+}
 
 /* logout */
 
-#logout{
-    cursor: pointer
-
+#logout {
+    cursor: pointer;
 }
