@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
 
     data[date].forEach(async (element) => {
       correctedName = element.name.replace(/[()]/g, '');
-      
+
       const awaitme = await promises.push({
           name: correctedName,
           diameter: element.estimated_diameter.feet.estimated_diameter_max,
@@ -44,7 +44,7 @@ router.get("/", async (req, res) => {
   }
 
 
-  Asteroid.bulkCreate(promises)
+  Asteroid.bulkCreate(promises, {ignoreDuplicates: true})
 
   const results = await Asteroid.findAll({});
   // console.log("results: ", results);
