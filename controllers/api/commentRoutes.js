@@ -3,6 +3,8 @@ const router = express.Router();
 const { Asteroid, Comment, User } = require("../../models");
 const authenticated = require("../../utils/auth");
 
+// Finds all comments
+
 router.get("/", (req, res) => {
   Comment.findAll()
     .then((comments) => {
@@ -13,9 +15,10 @@ router.get("/", (req, res) => {
     });
 });
 
+//Creates a new comment
+
 router.post("/", (req, res) => {
-  console.log(`==========================
-    ${req.body}====================================`);
+  
   Comment.create({
     content: req.body.content,
     user_id: req.session.user_id,

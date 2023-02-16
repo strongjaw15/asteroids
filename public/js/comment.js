@@ -4,10 +4,8 @@ async function postComment(event) {
   event.preventDefault();
 
   const content = document.querySelector("#comment-input").value;
-//  const user_id = document.querySelector(`#user_id`).value;
+// Posts new comment
   const asteroid_id = document.querySelector("#asteroid_id").value;
-  console.log(content);
-  console.log(asteroid_id);
   const response = await fetch("/api/comments", {
     method: "POST",
     body: JSON.stringify({ content, asteroid_id }),

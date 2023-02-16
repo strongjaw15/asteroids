@@ -2,8 +2,9 @@ const router = require("express").Router();
 const session = require("express-session");
 const { Asteroid, Comment, User } = require("../../models");
 
+// Creates a user with their input and creates the session for the user.
+
 router.post("/signup", (req, res) => {
-  console.log(req.body)
   User.create({
     username: req.body.username,
     password: req.body.password,
@@ -22,6 +23,8 @@ router.post("/signup", (req, res) => {
     });
 });
 
+//Allows the user to login if the credentials match the database else throw error.
+
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
@@ -29,7 +32,7 @@ router.post("/login", (req, res) => {
     },
   })
     .then(async (userData) => {
-      console.log(userData);
+      
       if (!userData) {
         res
           .status(400)
@@ -56,6 +59,8 @@ router.post("/login", (req, res) => {
       return res.status(500).json(err);
     });
 });
+
+// Logs the user out, and destroys session.
 
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {

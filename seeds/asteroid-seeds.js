@@ -25,15 +25,7 @@ const asteroidData = [
         close_date: new Date('2023-02-13'),
         miss_distance: 5.02
     },
-    {
-        name: "Four Twenty",
-        diameter: 42069.15,
-        speed: 69420.25,
-        hazardous: false,
-        close_date: new Date('2023-04-20'),
-        miss_distance: 42666.25
-    },
-
+  
 ];
 
 const seedAsteroid = () => Asteroid.bulkCreate(asteroidData);
