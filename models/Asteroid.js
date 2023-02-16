@@ -39,6 +39,10 @@ Asteroid.init(
     },
     {
         sequelize,
+        indexes: [{
+            unique: true,
+            fields: ['name'],
+        }],
         timestamps: true,
         freezeTableName: true,
         underscored: true,
