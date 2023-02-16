@@ -6,7 +6,7 @@
 
 ## Description
 
-For this website we wanted to create a neat, clean site where users could see a list of asteroids near earth at the present time, and if they create a user account, then they can view specific details about each asteroid and leave comments on them. In making this project, we learned more about API routes, sequelize queries to a MySQL database, and using handlebars to facilitate server-side rendering for all of the pages. It uses a NASA API to bring in the asteroid data, and then uses a back-end MySQL database to store the asteroid data, comments, and user data. Each page is rendered using handlebars on the server. In development we used Github Projects as a kanban board.
+For this website we wanted to create a neat, clean site where users could see a list of asteroids near earth at the present time, and if they create a user account, then they can view specific details about each asteroid and leave comments on them. In making this project, we learned more about API routes, sequelize queries to a MySQL database, and using handlebars to facilitate server-side rendering for all of the pages. It uses a NASA API to bring in the asteroid data, and then uses a back-end MySQL database to store the asteroid data, comments, and user data. Each page is rendered using handlebars on the server. In development we used Github Projects as a kanban board. Once the site was built we deployed it to Heroku.
 
 ## Visuals
 
