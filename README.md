@@ -14,8 +14,8 @@ For this website we wanted to create a neat, clean site where users could see a 
 
 ## Links
 
-https://github.com/strongjaw15/asteroids
-https://asteroids.herokuapp.com/
+- https://github.com/strongjaw15/asteroids
+- https://asteroids.herokuapp.com/
 
 ## Credits
 
