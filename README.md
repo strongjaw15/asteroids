@@ -2,7 +2,7 @@
 
 ## Badges
 
-![](https://img.shields.io/badge/Cool-100%-blue)
+![](https://img.shields.io/badge/Cool-100%25-blue)
 
 ## Description
 
