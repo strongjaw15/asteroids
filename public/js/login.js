@@ -1,3 +1,5 @@
+
+
 const loginFormSelector = document.querySelector(".login-form");
 
 const loginForm = async (event) => {
@@ -5,7 +7,7 @@ const loginForm = async (event) => {
 
   const username = document.querySelector("#username-login").value.trim();
   const password = document.querySelector("#password-login").value.trim();
-
+   // if a username and password is entered do a fetch request to the user API. If username and password match database send to home.
   if (username && password) {
     const response = await fetch("/api/users/login", {
       method: "POST",
@@ -20,5 +22,5 @@ const loginForm = async (event) => {
     }
   }
 };
-console.log(loginForm);
+
 loginFormSelector.addEventListener("submit", loginForm);

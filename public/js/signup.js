@@ -6,6 +6,8 @@ let password = $("#password-signup");
 const signup = async (event) => {
   event.preventDefault();
 
+  // if a username and password is entered do a fetch request to the user API
+
   if (username.val() && password.val()) {
     const response = await fetch("/api/users/signup", {
       method: "POST",

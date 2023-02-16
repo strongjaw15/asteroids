@@ -1,3 +1,5 @@
+// if logout button is clicked fetch the logout route.
+
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',

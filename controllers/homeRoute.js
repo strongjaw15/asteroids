@@ -9,6 +9,7 @@ const today = moment().format("YYYY-MM-DD");
 const tomorrow = moment().add(1, "days").format("YYYY-MM-DD");
 const weekAgo = moment().subtract(7, "days").format("YYYY-MM-DD HH:MM:SS");
 const Sequelize = require('sequelize')
+// destroys asteroids older than 14 hours in the database
 
 router.get("/", async (req, res) => {
    await Asteroid.destroy({ where: {
@@ -16,6 +17,8 @@ router.get("/", async (req, res) => {
       [Sequelize.lte]: new Date(Date.now() - (60*60*14*1000))
     }
    }});
+
+   // pulls in asteroid data from NASA
 
   const nasaData = await axios.get(
     `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&api_key=m3HKKEeMd83xzbasILLhUhnjvaYnkqmbJVmfOMuU`
@@ -43,19 +46,23 @@ router.get("/", async (req, res) => {
     });
   }
 
+  //This line bulk creates asteroids, and removes all duplicates.
 
   Asteroid.bulkCreate(promises, {ignoreDuplicates: true})
 
   const results = await Asteroid.findAll({});
-  // console.log("results: ", results);
+
+// This sends the asteroids to the home page and renders them.
 
   const asteroids = results.map((roidz) => roidz.get({ plain: true }));
-  // console.log(asteroids);
+ 
   res.render("homepage", {
     asteroids: asteroids,
     loggedIn: req.session.loggedIn,
   });
 });
+
+//if logged in it will present the single asteroid route with subsequent comments, and the associated users.
 
 router.get("/asteroid/:id", authenticated, (req, res) => {
   Asteroid.findOne({
@@ -72,13 +79,14 @@ router.get("/asteroid/:id", authenticated, (req, res) => {
     ],
   }).then((convert) => {
     const singleConvert = convert.get({ plain: true });
-    console.log(singleConvert);
     res.render("single_asteroid", {
       asteroid: singleConvert,
       loggedIn: req.session.loggedIn,
     });
   });
 });
+
+// If user is logged in it redirects to home page else redirect to login page.
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
@@ -87,6 +95,8 @@ router.get("/login", (req, res) => {
   }
   res.render("login");
 });
+
+// Takes user to signup route.
 
 router.get("/signup", (req, res) => {
   res.render("signup");

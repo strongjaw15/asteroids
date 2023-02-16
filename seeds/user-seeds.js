@@ -13,10 +13,7 @@ const userData = [
     username: "gary",
     password: "password",
   },
-  {
-    username: "blazedAF",
-    password: "password",
-  },
+
 ];
 
 const seedUser = () =>
