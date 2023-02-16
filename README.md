@@ -10,7 +10,7 @@ For this website we wanted to create a neat, clean site where users could see a 
 
 ## Visuals
 
-![](./assets/images/Asteroids.gif)
+![](.public/assets/Asteroids.gif)
 
 ## Links
 
