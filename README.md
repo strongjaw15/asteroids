@@ -21,11 +21,11 @@ https://asteroids.herokuapp.com/
 
 The creators of this page are:
 
-    - Alex Griffitts, https://github.com/AlexGriffitts
-    - Brent Johnson, https://github.com/DevBrent3274
-    - Corin Wenger, https://github.com/strongjaw15
-    - Erik Neafus, https://github.com/erik814
-    - Greg Jewell, https://github.com/gdjewell
+    * Alex Griffitts, https://github.com/AlexGriffitts
+    * Brent Johnson, https://github.com/DevBrent3274
+    * Corin Wenger, https://github.com/strongjaw15
+    * Erik Neafus, https://github.com/erik814
+    * Greg Jewell, https://github.com/gdjewell
 
 ## License
 
