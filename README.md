@@ -47,6 +47,6 @@ Contributions will be considered case-by-case. If one submits a contribution, it
 
 Here is a list of potential future developments:
 
-    - Create a user page where a user can see their profile and all of the comments they have made.
-    - Create a thumbs-up option for each asteroid.
-    - Allow users to "match" over asteroids that they have reacted positively to.
+    * Create a user page where a user can see their profile and all of the comments they have made.
+    * Create a thumbs-up option for each asteroid.
+    * Allow users to "match" over asteroids that they have reacted positively to.
