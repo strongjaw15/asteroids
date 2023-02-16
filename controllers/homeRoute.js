@@ -53,6 +53,7 @@ router.get("/", async (req, res) => {
   // console.log(asteroids);
   res.render("homepage", {
     asteroids: asteroids,
+    loggedIn: req.session.loggedIn,
   });
 });
 
