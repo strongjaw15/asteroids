@@ -21,11 +21,11 @@ https://asteroids.herokuapp.com/
 
 The creators of this page are:
 
-    * Alex Griffitts, https://github.com/AlexGriffitts
-    * Brent Johnson, https://github.com/DevBrent3274
-    * Corin Wenger, https://github.com/strongjaw15
-    * Erik Neafus, https://github.com/erik814
-    * Greg Jewell, https://github.com/gdjewell
+- Alex Griffitts, https://github.com/AlexGriffitts
+- Brent Johnson, https://github.com/DevBrent3274
+- Corin Wenger, https://github.com/strongjaw15
+- Erik Neafus, https://github.com/erik814
+- Greg Jewell, https://github.com/gdjewell
 
 ## License
 
@@ -47,6 +47,6 @@ Contributions will be considered case-by-case. If one submits a contribution, it
 
 Here is a list of potential future developments:
 
-    * Create a user page where a user can see their profile and all of the comments they have made.
-    * Create a thumbs-up option for each asteroid.
-    * Allow users to "match" over asteroids that they have reacted positively to.
+- Create a user page where a user can see their profile and all of the comments they have made.
+- Create a thumbs-up option for each asteroid.
+- Allow users to "match" over asteroids that they have reacted positively to.
